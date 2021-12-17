@@ -1,4 +1,4 @@
-import html2canvas from './html2canvas.min.js'
+import html2canvas from 'html2canvas'
 import { css, remove, domType, addClass, typeChecking } from './util'
 import createDragDom from './createDragDom.js'
 import createToolbar from './toolbar/toolbar.js'
@@ -45,6 +45,7 @@ let kss = (function() {
     this.isScreenshot = false
     //快照组
     this.snapshootList = []
+    this.files = [];
     /*
     * 1: 点下左键，开始状态
     * 2: 鼠标移动，进行状态
