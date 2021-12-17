@@ -3,28 +3,37 @@ import drawMiddleImage from '../middleImage/drawMiddleImage'
 import copy from '../copy'
 import download from '../download'
 import endAndClear from '../endAndClear'
+import img from '../../assets/imgs/ok.png';
 
-export default function completeBT (me) {
-    let completeBT = document.createElement('span')
-    completeBT.id = 'kssCompleteBT'
-    completeBT.className = 'kssToolbarItemBT'
-    completeBT.innerHTML = '完成'
-    completeBT.title = '完成截图'
+export default function completeBT(me) {
+  let completeBT = document.createElement('span')
+  completeBT.id = 'kssCompleteBT'
+  completeBT.className = 'kssToolbarItemBT'
+  completeBT.innerHTML = 'Ok'
+  completeBT.title = '完成截图'
 
-    css(completeBT, {
-        width: '40px',
-        'line-height': '28px'
-    })
+  let completeImg = document.createElement('img')
+  completeImg.className = 'kssToolbarItemImg'
+  completeImg.src = img
+  me.completeBT = completeImg
 
-    completeBT.addEventListener('click', async function () {
-        me.isEdit = true
-        
-        const lastShot = me.snapshootList[me.snapshootList.length - 1]
-        copy(me, lastShot)
-        me.needDownload === true && (await download(me))
-        typeChecking(me.endCB) === '[object Function]' && me.endCB(lastShot)
-        endAndClear(me)
-    })
+  completeBT.appendChild(completeImg)
 
-    return completeBT
+  css(completeBT, {
+    width: '40px',
+    'line-height': '28px'
+  })
+
+  completeBT.addEventListener('click', async function() {
+    me.isEdit = true
+
+    const lastShot = me.snapshootList[me.snapshootList.length - 1]
+    const lastFile = me.files[me.files.length - 1];
+    copy(me, lastShot)
+    me.needDownload === true && (await download(me))
+    typeChecking(me.endCB) === '[object Function]' && me.endCB(lastFile, lastShot)
+    endAndClear(me)
+  })
+
+  return completeBT
 }

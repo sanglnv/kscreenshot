@@ -1,24 +1,24 @@
-export default function backRightClient (e) {
-    let clientHeight = document.documentElement.clientHeight
-    let clientWidth = document.documentElement.clientWidth
-    let clientX = e.clientX
-    let clientY = e.clientY
-    
-    if (clientX < 0) {
-        clientX = 0
-    }
+export default function backRightClient(e) {
+  let clientHeight = document.documentElement.clientHeight
+  let clientWidth = document.documentElement.clientWidth
+  let clientX = e.clientX
+  let clientY = e.clientY
 
-    if (clientX > clientWidth) {
-        clientX = clientWidth
-    }
+  if (clientX < 0) {
+    clientX = 0
+  }
 
-    if (clientY < 0) {
-        clientY = 0
-    }
+  if (clientX > clientWidth) {
+    clientX = clientWidth
+  }
 
-    if (clientY > clientHeight) {
-        clientY = clientHeight
-    }
+  if (clientY < 0) {
+    clientY = 0
+  }
 
-    return [clientX, clientY]
+  if (clientY > clientHeight) {
+    clientY = clientHeight
+  }
+
+  return [clientX, clientY]
 }
