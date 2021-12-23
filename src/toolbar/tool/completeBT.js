@@ -9,7 +9,6 @@ export default function completeBT(me) {
   let completeBT = document.createElement('span')
   completeBT.id = 'kssCompleteBT'
   completeBT.className = 'kssToolbarItemBT'
-  completeBT.innerHTML = 'Ok'
   completeBT.title = '完成截图'
 
   let completeImg = document.createElement('img')

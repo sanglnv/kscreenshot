@@ -273,6 +273,7 @@ let kss = (function() {
         that.drawingStatus = null
         that.isEdit = false
         that.snapshootList = []
+        that.files = []
         that.currentToolType = null
         that.toolmousedown = null
         that.toolmousemove = null
