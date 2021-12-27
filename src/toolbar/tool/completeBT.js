@@ -19,8 +19,8 @@ export default function completeBT(me) {
   completeBT.appendChild(completeImg)
 
   css(completeBT, {
-    width: '40px',
-    'line-height': '28px'
+    width: '28px',
+    'line-height': '22px'
   })
 
   completeBT.addEventListener('click', async function() {
